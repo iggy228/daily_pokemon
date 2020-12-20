@@ -2,6 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MainCard extends StatelessWidget {
+  final String name;
+  final String text;
+  final String image;
+
+  MainCard({this.name, this.text, this.image});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,7 +30,7 @@ class MainCard extends StatelessWidget {
             children: [
               Expanded(
                 child: Image.asset(
-                  'images/fennekin.png',
+                  image,
                 ),
               ),
               SizedBox(width: 12),
@@ -33,12 +39,12 @@ class MainCard extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      'Fennekin',
+                      name,
                       style: Theme.of(context).textTheme.headline3,
                       textAlign: TextAlign.center,
                     ),
                     Text(
-                      'There is lot of text aboat fenneking and his cuteness uwu',
+                      text,
                       style: Theme.of(context).textTheme.bodyText1,
                     )
                   ],
