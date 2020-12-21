@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animation/screen/home.dart';
+import 'package:flutter_animation/screen/pokemon_details.dart';
 
 void main() => runApp(MaterialApp(
-  home: Home(),
+  routes: {
+    '/': (context) => Home(),
+    '/details': (context) => PokemonDetails()
+  },
   theme: ThemeData(
     primaryColor: Color.fromRGBO(30, 30, 36, 1),
     accentColor: Color.fromRGBO(119, 134, 127, 1),
@@ -10,6 +14,11 @@ void main() => runApp(MaterialApp(
     fontFamily: 'OpenSans',
 
     textTheme: TextTheme(
+      headline1: TextStyle(
+        fontSize: 36,
+        fontFamily: 'Pacifico',
+        color: Colors.white,
+      ),
       headline2: TextStyle(
         fontSize: 32,
         fontFamily: 'Pacifico',
@@ -23,6 +32,12 @@ void main() => runApp(MaterialApp(
       bodyText1: TextStyle(
         fontFamily: 'OpenSans',
         fontSize: 14,
+      ),
+      bodyText2: TextStyle(
+        fontFamily: 'OpenSans',
+        fontSize: 14,
+        letterSpacing: 2,
+        color: Colors.white,
       ),
     ),
   ),

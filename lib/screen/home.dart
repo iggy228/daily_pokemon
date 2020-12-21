@@ -33,7 +33,7 @@ class Home extends StatelessWidget {
       body: SafeArea(
         child: HeaderGridView(
           header: GestureDetector(
-            onTap: () {},
+            onTap: () => Navigator.pushNamed(context, '/details'),
             child: MainCard(
               name: 'Fennekin',
               text: 'There is lot of text about fennekin uwu',
