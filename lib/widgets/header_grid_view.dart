@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animation/models/PokemonBasic.dart';
-import 'package:flutter_animation/widgets/main_card.dart';
 
 class HeaderGridView extends StatelessWidget {
-  Function itemBuilder;
-  int itemCount;
-  Widget header;
+  final Function itemBuilder;
+  final int itemCount;
+  final Widget header;
 
   HeaderGridView({this.itemBuilder, this.itemCount, this.header});
 

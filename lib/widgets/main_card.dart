@@ -29,8 +29,11 @@ class MainCard extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                child: Image.asset(
-                  image,
+                child: Hero(
+                  tag: 'pokemon-$name',
+                  child: Image.asset(
+                    image,
+                  ),
                 ),
               ),
               SizedBox(width: 12),
