@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animation/screen/home.dart';
+import 'package:flutter_animation/screen/loading.dart';
 import 'package:flutter_animation/screen/pokemon_details.dart';
 
 void main() => runApp(DailyPokemons());
@@ -9,7 +10,8 @@ class DailyPokemons extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/': (context) => Home(),
+        '/': (context) => Loading(),
+        '/home': (context) => Home(),
         '/details': (context) => PokemonDetails()
       },
       theme: ThemeData(

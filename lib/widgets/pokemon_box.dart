@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class PokemonBox extends StatelessWidget {
   final String name;
-  final String image;
+  final String imageUrl;
 
-  PokemonBox({this.name, this.image});
+  PokemonBox({this.name, this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class PokemonBox extends StatelessWidget {
               style: Theme.of(context).textTheme.headline3,
               textAlign: TextAlign.center,
             ),
-            Image.asset('images/$image', height: 120),
+            Image.network(imageUrl, width: 130),
           ],
         ),
       ),
