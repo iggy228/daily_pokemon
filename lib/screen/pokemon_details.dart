@@ -68,7 +68,7 @@ class PokemonDetails extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 16),
 
                 // Stats indicator
                 StatIndicator(imageUrl: 'images/health.png', color: Colors.red[800], value: 25),
@@ -78,6 +78,7 @@ class PokemonDetails extends StatelessWidget {
                 StatIndicator(imageUrl: 'images/special_attack.png', color: Colors.purple[800], value: 25),
                 StatIndicator(imageUrl: 'images/special_defense.png', color: Colors.blue[800], value: 25),
 
+                SizedBox(height: 16),
                 Text('There is lot of text about fennekin uwu')
               ],
             ),

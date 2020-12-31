@@ -11,7 +11,7 @@ class StatIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 3),
+      padding: EdgeInsets.symmetric(vertical: 2),
       child: Row(
         children: [
           Image.asset(imageUrl, width: 32, height: 32, color: color),
