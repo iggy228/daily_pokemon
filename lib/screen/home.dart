@@ -9,10 +9,10 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     List pokemons = ModalRoute.of(context).settings.arguments;
 
-    Future<void> goToDetails(String name) async {
+    Future<void> goToDetails(String name, String imageUrl) async {
       PokeApi pokeApi = PokeApi();
       Map pokemon = await pokeApi.getPokemonData(name);
-      print(pokemon);
+      pokemon['imageUrl'] = imageUrl;
       Navigator.pushNamed(context, '/details', arguments: pokemon);
     }
 
@@ -42,7 +42,7 @@ class Home extends StatelessWidget {
           itemCount: pokemons.length,
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
-              onTap: () => goToDetails(pokemons[index]['name']),
+              onTap: () => goToDetails(pokemons[index]['name'], pokemons[index]['imageUrl']),
               child: PokemonBox(
                 name: pokemons[index]['name'],
                 imageUrl: pokemons[index]['imageUrl'],

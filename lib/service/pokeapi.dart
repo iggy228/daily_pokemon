@@ -5,7 +5,7 @@ class PokeApi {
   final String baseUrl = 'https://pokeapi.co/api/v2/pokemon/';
   List pokemons;
 
-  Future<void> getData({int offset = 0, int limit = 50}) async {
+  Future<void> getData({int offset = 0, int limit = 20}) async {
     try {
       Response response = await get('$baseUrl?offset=$offset&limit=$limit');
 
@@ -36,7 +36,7 @@ class PokeApi {
       pokemonData['name'] = name;
       pokemonData['stats'] = data['stats'];
       pokemonData['types'] = data['types'];
-      pokemonData['description'] = speciesDetails['flavor_text_entries'][0]['flavor_text'];
+      pokemonData['description'] = speciesDetails['flavor_text_entries'][0]['flavor_text'].replaceAll('\n', ' ').replaceAll('\u000c', ' ');
       pokemonData['imageUrl'] = data['sprites']['other']['official-artwork']['front_default'];
 
       return pokemonData;

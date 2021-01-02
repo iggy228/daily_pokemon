@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HeaderGridView extends StatelessWidget {
-  final Function itemBuilder;
+  final Function(BuildContext, int) itemBuilder;
   final int itemCount;
   final Widget header;
 

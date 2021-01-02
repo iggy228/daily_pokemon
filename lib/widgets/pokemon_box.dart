@@ -20,7 +20,10 @@ class PokemonBox extends StatelessWidget {
               style: Theme.of(context).textTheme.headline3,
               textAlign: TextAlign.center,
             ),
-            Image.network(imageUrl, width: 130),
+            Hero(
+              tag: 'pokemon-$name',
+              child: Image.network(imageUrl, width: 130),
+            ),
           ],
         ),
       ),

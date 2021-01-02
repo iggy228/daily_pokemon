@@ -19,7 +19,7 @@ class HeaderCard extends StatelessWidget {
       ),
       child: Hero(
         tag: 'pokemon-$name',
-        child: Image.asset(
+        child: Image.network(
           imageUrl,
           height: 200,
         ),

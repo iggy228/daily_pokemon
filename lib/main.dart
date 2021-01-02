@@ -9,6 +9,7 @@ class DailyPokemons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Daily Pokemons',
       routes: {
         '/': (context) => Loading(),
         '/home': (context) => Home(),
