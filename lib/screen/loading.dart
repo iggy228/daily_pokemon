@@ -12,7 +12,11 @@ class _LoadingState extends State<Loading> {
   void initData() async {
     PokeApi pokeapi = PokeApi();
     await pokeapi.getData();
-    Navigator.pushReplacementNamed(context, '/home', arguments: pokeapi.pokemons);
+    await pokeapi.getTodayPokemon();
+    Navigator.pushReplacementNamed(context, '/home', arguments: {
+      'todayPokemon': pokeapi.todayPokemon,
+      'pokemonsData': pokeapi.pokemons
+    });
   }
 
   @override

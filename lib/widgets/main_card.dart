@@ -31,7 +31,7 @@ class MainCard extends StatelessWidget {
               Expanded(
                 child: Hero(
                   tag: 'pokemon-$name',
-                  child: Image.asset(
+                  child: Image.network(
                     image,
                   ),
                 ),

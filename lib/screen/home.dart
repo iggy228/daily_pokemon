@@ -5,16 +5,19 @@ import 'package:flutter_animation/widgets/main_card.dart';
 import 'package:flutter_animation/widgets/pokemon_box.dart';
 
 class Home extends StatelessWidget {
+  Future<void> goToDetails(BuildContext context, String name, String imageUrl) async {
+    PokeApi pokeApi = PokeApi();
+    Map pokemon = await pokeApi.getPokemonData(name);
+    pokemon['imageUrl'] = imageUrl;
+    Navigator.pushNamed(context, '/details', arguments: pokemon);
+  }
+
   @override
   Widget build(BuildContext context) {
-    List pokemons = ModalRoute.of(context).settings.arguments;
+    Map pokemonsData = ModalRoute.of(context).settings.arguments;
 
-    Future<void> goToDetails(String name, String imageUrl) async {
-      PokeApi pokeApi = PokeApi();
-      Map pokemon = await pokeApi.getPokemonData(name);
-      pokemon['imageUrl'] = imageUrl;
-      Navigator.pushNamed(context, '/details', arguments: pokemon);
-    }
+    List pokemons = pokemonsData['pokemonsData'];
+    Map todayPokemon = pokemonsData['todayPokemon'];
 
     return Scaffold(
       backgroundColor: Theme.of(context).accentColor,
@@ -32,17 +35,17 @@ class Home extends StatelessWidget {
       body: SafeArea(
         child: HeaderGridView(
           header: GestureDetector(
-            onTap: () => Navigator.pushNamed(context, '/details'),
+            onTap: () => goToDetails(context, todayPokemon['name'], todayPokemon['imageUrl']),
             child: MainCard(
-              name: 'Fennekin',
-              text: 'There is lot of text about fennekin uwu',
-              image: 'images/fennekin.png',
+              name: todayPokemon['name'],
+              text: todayPokemon['description'],
+              image: todayPokemon['imageUrl'],
             ),
           ),
           itemCount: pokemons.length,
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
-              onTap: () => goToDetails(pokemons[index]['name'], pokemons[index]['imageUrl']),
+              onTap: () => goToDetails(context, pokemons[index]['name'], pokemons[index]['imageUrl']),
               child: PokemonBox(
                 name: pokemons[index]['name'],
                 imageUrl: pokemons[index]['imageUrl'],
